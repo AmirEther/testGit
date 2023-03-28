@@ -1,0 +1,22 @@
+import requests
+import json
+
+# Set up authentication credentials
+username = 'your_github_username'
+token = 'your_github_token'
+
+# Set up the API endpoint and repository name
+url = 'https://api.github.com/user/repos'
+repository_name = 'my-new-repo'
+
+# Create the repository payload
+payload = {'name': repository_name}
+
+# Set the authentication headers
+headers = {'Authorization': 'token ' + token}
+
+# Send the POST request to create the repository
+response = requests.post(url, headers=headers, data=json.dumps(payload))
+
+# Print the response
+print(response.json())
